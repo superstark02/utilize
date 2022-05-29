@@ -33,3 +33,9 @@ th{
   justify-content: space-between;
   align-items: center;
 }
+
+.wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

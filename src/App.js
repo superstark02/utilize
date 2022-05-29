@@ -15,6 +15,7 @@ function App() {
   const [cuurentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(10);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const inexOfLastPost = cuurentPage * postPerPage;
   const indexOfFirstPost = inexOfLastPost - postPerPage
@@ -29,6 +30,7 @@ function App() {
       } else {
         setUser(null)
       }
+      setLoading(false)
     });
   });
 
@@ -38,6 +40,14 @@ function App() {
 
   const sign_in = () => {
     setUser(login)
+  }
+
+  if(loading){
+    return(
+      <div style={{height:'100vh'}} className="wrap" >
+        Loading...
+      </div>
+    )
   }
 
   if (user) {

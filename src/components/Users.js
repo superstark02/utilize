@@ -1,6 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import '../firebase'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { UsersData } from "../DummyData";
+
+
+function userData(){
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user)
+      return user
+    } else {
+      return null
+    }
+  });
+}
+
 
 export const userSlice = createSlice({
   name: "users",
